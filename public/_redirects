@@ -1,0 +1,3 @@
+# Create this file as public/_redirects (for Vite) or public/_redirects (for CRA)
+
+/*    /index.html   200
