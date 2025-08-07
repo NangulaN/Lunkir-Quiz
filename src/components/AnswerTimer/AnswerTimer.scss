@@ -1,0 +1,41 @@
+@import "../../styles/vars.scss";
+
+.answer-timer-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid $disabled;
+    
+    .timer-progress{
+        height: 5px;
+        transition-duration: 0.1s;
+        width: 0;
+        transition-timing-function: linear;
+    }
+
+      // Tablet styles (768px and below)
+    @media (max-width: 768px) {
+        border-bottom-width: 2px;
+        
+        .timer-progress {
+            height: 4px;
+        }
+    }
+
+    // Mobile styles (480px and below)
+    @media (max-width: 480px) {
+        .timer-progress {
+            height: 6px; // Slightly thicker for better visibility on mobile
+        }
+    }
+
+    // Small mobile styles (360px and below)
+    @media (max-width: 360px) {
+        .timer-progress {
+            height: 7px; // Even thicker for very small screens
+        }
+    }
+
+}
+

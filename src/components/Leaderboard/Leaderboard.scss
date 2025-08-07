@@ -1,0 +1,222 @@
+@import "../../styles/vars.scss";
+
+.leaderboard {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: $bg;
+    border: 3px solid $primary;
+    border-radius: 8px;
+
+    h2 {
+        text-align: center;
+        color: $primary;
+        font-size: 28px;
+        margin-bottom: 25px;
+        letter-spacing: 1.2px;
+    }
+
+    .loading, .error, .empty {
+        text-align: center;
+        padding: 40px 20px;
+        font-size: 16px;
+        color: $disabled;
+    }
+
+    .error {
+        color: #ff6b6b;
+    }
+
+    .retry-btn {
+        background: linear-gradient(0deg, $primary 0.03%, $accent);
+        border-radius: 6px;
+        font-size: 14px;
+        color: $bg;
+        padding: 8px 20px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        font-family: monospace;
+    }
+
+    .leaderboard-list {
+        .leaderboard-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: lighten($bg, 3%);
+            border: 2px solid $disabled;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                border-color: $primary;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            &.top-three {
+                border-color: $accent;
+                background: linear-gradient(135deg, lighten($bg, 5%), lighten($bg, 2%));
+            }
+
+            .rank {
+                font-size: 24px;
+                font-weight: bold;
+                min-width: 60px;
+                text-align: center;
+                margin-right: 15px;
+            }
+
+            .player-info {
+                flex: 1;
+                
+                .name {
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: $foreground;
+                    margin-bottom: 2px;
+                }
+
+                .completion-date {
+                    font-size: 12px;
+                    color: $disabled;
+                }
+            }
+
+            .score-info {
+                text-align: right;
+                
+                .score {
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: $primary;
+                    margin-bottom: 2px;
+                }
+
+                .percentage {
+                    font-size: 14px;
+                    color: $accent;
+                }
+            }
+        }
+    }
+
+    .leaderboard-footer {
+        text-align: center;
+        margin-top: 20px;
+        
+        .refresh-btn {
+            background: transparent;
+            border: 2px solid $disabled;
+            border-radius: 6px;
+            color: $disabled;
+            font-size: 14px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-family: monospace;
+            transition: all 0.2s ease;
+
+            &:hover {
+                border-color: $primary;
+                color: $primary;
+                transform: translateY(-1px);
+            }
+        }
+    }
+
+    // Tablet styles
+    @media (max-width: 768px) {
+        margin: 15px;
+        padding: 15px;
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .leaderboard-list .leaderboard-item {
+            padding: 12px;
+            
+            .rank {
+                font-size: 20px;
+                min-width: 50px;
+                margin-right: 12px;
+            }
+
+            .player-info .name {
+                font-size: 16px;
+            }
+
+            .score-info .score {
+                font-size: 18px;
+            }
+        }
+    }
+
+    // Mobile styles
+    @media (max-width: 480px) {
+        margin: 10px;
+        padding: 10px;
+        border-width: 2px;
+
+        h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .leaderboard-list .leaderboard-item {
+            padding: 10px;
+            flex-direction: row;
+            
+            .rank {
+                font-size: 18px;
+                min-width: 40px;
+                margin-right: 10px;
+            }
+
+            .player-info {
+                .name {
+                    font-size: 15px;
+                }
+
+                .completion-date {
+                    font-size: 11px;
+                }
+            }
+
+            .score-info {
+                .score {
+                    font-size: 16px;
+                }
+
+                .percentage {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    // Small mobile styles
+    @media (max-width: 360px) {
+        .leaderboard-list .leaderboard-item {
+            padding: 8px;
+            
+            .rank {
+                font-size: 16px;
+                min-width: 35px;
+                margin-right: 8px;
+            }
+
+            .player-info .name {
+                font-size: 14px;
+            }
+
+            .score-info .score {
+                font-size: 15px;
+            }
+        }
+    }
+}

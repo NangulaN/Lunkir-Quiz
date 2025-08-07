@@ -1,0 +1,38 @@
+@import "./vars.scss";
+
+body {
+    font-family: monospace;
+    background-image: url("../assets/lunkirBackground.png");
+    // background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    // background-repeat: no-repeat;
+    color: $foreground;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto; 
+    padding: 0 30px; 
+    height: 100vh;
+    box-sizing: border-box;
+
+    // Tablet styles
+    @media (max-width: 768px) {
+        padding: 0 20px;
+        background-attachment: scroll; // Better performance on mobile
+    }
+
+    // Mobile styles
+    @media (max-width: 480px) {
+        padding: 0 15px;
+        align-items: flex-start;
+    }
+
+    // Small mobile styles
+    @media (max-width: 360px) {
+        padding: 0 10px;
+    }
+  }
+
+  
+    // background: linear-gradient(0deg, $primary 0.03%, $accent);

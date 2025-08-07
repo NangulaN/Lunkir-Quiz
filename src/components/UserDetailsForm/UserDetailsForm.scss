@@ -1,0 +1,173 @@
+@import "../../styles/vars.scss";
+
+.user-details-form {
+    text-align: center;
+    padding: 20px;
+
+    h3 {
+        font-size: 24px;
+        color: $primary;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+    }
+
+    .score-display {
+        font-size: 18px;
+        margin-bottom: 25px;
+        
+        .score {
+            color: $primary;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0 5px;
+        }
+
+        .percentage {
+            color: $accent;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+
+            input {
+                width: 100%;
+                padding: 12px 16px;
+                font-size: 16px;
+                font-family: monospace;
+                border: 2px solid $disabled;
+                border-radius: 8px;
+                background: $bg;
+                color: $foreground;
+                box-sizing: border-box;
+                transition: all 0.2s ease;
+
+                &:focus {
+                    outline: none;
+                    border-color: $primary;
+                    transform: translateY(-2px);
+                }
+
+                &::placeholder {
+                    color: $disabled;
+                }
+
+                &.error {
+                    border-color: #ff6b6b;
+                    background: rgba(255, 107, 107, 0.1);
+                }
+
+                &:disabled {
+                    opacity: 0.6;
+                    cursor: not-allowed;
+                }
+            }
+
+            .error-message {
+                display: block;
+                color: #ff6b6b;
+                font-size: 12px;
+                margin-top: 5px;
+                margin-left: 5px;
+            }
+        }
+
+        .form-actions {
+            margin-top: 30px;
+
+            .submit-btn {
+                background: linear-gradient(0deg, $primary 0.03%, $accent);
+                border-radius: 9px;
+                font-size: 16px;
+                color: $bg;
+                padding: 12px 40px;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                font-family: monospace;
+                font-weight: 600;
+
+                &:hover:not(:disabled) {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                }
+
+                &:disabled {
+                    background: $bg-accent;
+                    color: $disabled;
+                    cursor: not-allowed;
+                    transform: none;
+                }
+            }
+        }
+    }
+
+    // Tablet styles
+    @media (max-width: 768px) {
+        padding: 15px;
+
+        h3 {
+            font-size: 22px;
+        }
+
+        .score-display {
+            font-size: 16px;
+            
+            .score {
+                font-size: 22px;
+            }
+        }
+
+        form {
+            max-width: 350px;
+
+            .form-group input {
+                padding: 10px 14px;
+                font-size: 15px;
+            }
+        }
+    }
+
+    // Mobile styles
+    @media (max-width: 480px) {
+        padding: 10px;
+
+        h3 {
+            font-size: 20px;
+        }
+
+        .score-display {
+            font-size: 15px;
+            
+            .score {
+                font-size: 20px;
+            }
+
+            .percentage {
+                font-size: 14px;
+            }
+        }
+
+        form {
+            max-width: 100%;
+
+            .form-group input {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .form-actions .submit-btn {
+                width: 100%;
+                font-size: 15px;
+            }
+        }
+    }
+}
