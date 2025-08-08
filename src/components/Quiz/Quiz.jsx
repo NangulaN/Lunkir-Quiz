@@ -144,7 +144,7 @@ const Quiz = ({ questions }) => {
       {showAnswerTimer && (
         <AnswerTimer
           key={currentQuestion}
-          duration={5}
+          duration={30}
           onTimeUp={handleTimeUp}
         />
       )}
