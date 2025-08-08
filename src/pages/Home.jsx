@@ -29,7 +29,7 @@ const Home = () => {
               <span className="stat-label">Questions</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">30</span>
+              <span className="stat-number">20</span>
               <span className="stat-label">Seconds</span>
             </div>
             <div className="stat-item">
