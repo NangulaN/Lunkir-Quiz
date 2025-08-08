@@ -45,6 +45,9 @@ const Home = () => {
 
         <div className="leaderboard-section">
           <Leaderboard showTitle={true} maxEntries={10} />
+          <Link to="/leaderboard" className="leaderboard-link">
+        🏆 View Full Leaderboard
+          </Link>
         </div>
       </div>
 

@@ -115,10 +115,41 @@
       }
     }
 
-    // .leaderboard-section {
-    //   // The Leaderboard component handles its own styling
-    //   // This is just a container
-    // }
+    .leaderboard-section {
+      display: block;
+
+        .leaderboard-link {
+        background: linear-gradient(135deg, $primary, $accent);
+        border: none;
+        border-radius: 12px;
+        color: $bg;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 16px 40px;
+        cursor: pointer;
+        font-family: monospace;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+
+        &:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        &:active {
+          transform: translateY(-1px);
+        }
+
+        &:visited {
+          color: $bg;
+        }
+      }
+    }
+
   }
 
   .home-footer {

@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import QuizPage from './pages/QuizPage'
 import About from './pages/About'
 import Home from './pages/Home'
+import LeaderboardPage from './pages/LeaderboardPage'
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,11 @@ const router = createBrowserRouter([
   {
     path: 'quiz',
     element: <QuizPage />
-  }
+  },
+  {
+    path: '/leaderboard',
+    element: <LeaderboardPage />
+  },
 ])
 
 createRoot(document.getElementById('root')).render(

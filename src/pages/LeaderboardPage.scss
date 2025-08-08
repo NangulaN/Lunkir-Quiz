@@ -1,0 +1,291 @@
+@import "../styles/vars.scss";
+
+.leaderboard-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+
+  .leaderboard-header {
+    text-align: center;
+    margin-bottom: 30px;
+
+    .logo-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      transition: transform 0.2s ease;
+      text-decoration: none;
+      font-family: monospace;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      .logo {
+        height: 60px;
+        width: auto;
+        max-width: 150px;
+        object-fit: contain;
+      }
+
+      span {
+        color: #fff;
+        font-size: 2.3rem;
+        font-weight: 500;
+      }
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+
+      .title-section {
+        flex: 1;
+
+        h1 {
+          font-size: 32px;
+          color: $bg-accent;
+          margin-bottom: 10px;
+          letter-spacing: 1.5px;
+        }
+
+        .subtitle {
+          font-size: 16px;
+          color: $bg-accent;
+          margin: 0;
+          opacity: 0.8;
+        }
+      }
+
+      .filter-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 5px;
+
+        .filter-label {
+          font-size: 14px;
+          color: $bg-accent;
+          font-weight: 500;
+        }
+
+        .filter-select {
+          background: $bg;
+          border: 2px solid $bg-accent;
+          border-radius: 6px;
+          color: $foreground;
+          font-family: monospace;
+          font-size: 14px;
+          font-weight: 600;
+          padding: 8px 12px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:focus {
+            outline: none;
+            border-color: $primary;
+            transform: translateY(-1px);
+          }
+
+          &:hover {
+            border-color: $accent;
+          }
+
+          option {
+            background: $bg;
+            color: $foreground;
+          }
+        }
+      }
+    }
+  }
+
+  .leaderboard-content {
+    margin-bottom: 40px;
+  }
+
+  .leaderboard-footer {
+    border-top: 1px solid $disabled;
+    padding-top: 25px;
+
+    .navigation-section {
+      margin-bottom: 20px;
+
+      .navigation-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+
+        .nav-btn {
+          background: linear-gradient(135deg, $primary, $accent);
+          color: $bg;
+          text-decoration: none;
+          padding: 12px 24px;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 600;
+          font-family: monospace;
+          transition: all 0.2s ease;
+          border: 2px solid transparent;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          }
+
+          &.home-btn {
+            background: linear-gradient(135deg, $disabled, lighten($disabled, 10%));
+            color: $foreground;
+
+            &:hover {
+              background: linear-gradient(135deg, lighten($disabled, 5%), lighten($disabled, 15%));
+            }
+          }
+
+          &.quiz-btn {
+            background: linear-gradient(135deg, $accent, $bg-accent);
+          }
+        }
+      }
+    }
+
+    .encouragement-section {
+      text-align: center;
+
+      .encouragement {
+        font-size: 16px;
+        color: $foreground;
+        margin-bottom: 15px;
+
+        .inline-quiz-link {
+          color: $foreground;
+          text-decoration: none;
+          font-weight: 600;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: $accent;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .stats-summary {
+        .stats-text {
+          font-size: 14px;
+          color: $disabled;
+          margin: 0;
+          font-style: italic;
+        }
+      }
+    }
+  }
+
+  // Tablet styles (768px and below)
+  @media (max-width: 768px) {
+    padding: 15px;
+
+    .leaderboard-header {
+      margin-bottom: 30px;
+
+      .logo-link .logo {
+        height: 50px;
+        max-width: 120px;
+      }
+
+      h1 {
+        font-size: 28px;
+        letter-spacing: 1.2px;
+      }
+
+      .subtitle {
+        font-size: 15px;
+      }
+
+      .navigation-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        .nav-btn {
+          min-width: 150px;
+        }
+      }
+    }
+
+    .leaderboard-content .leaderboard-footer {
+      margin-top: 25px;
+      padding-top: 20px;
+
+      .encouragement {
+        font-size: 15px;
+      }
+    }
+  }
+
+  // Mobile styles (480px and below)
+  @media (max-width: 480px) {
+    padding: 10px;
+
+    .leaderboard-header {
+      margin-bottom: 25px;
+
+      .logo-link {
+        margin-bottom: 15px;
+        
+        .logo {
+          height: 40px;
+          max-width: 100px;
+        }
+      }
+
+      h1 {
+        font-size: 24px;
+        letter-spacing: 1px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+      }
+
+      .navigation-links .nav-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+        min-width: 130px;
+      }
+    }
+
+    .leaderboard-content .leaderboard-footer {
+      margin-top: 20px;
+
+      .encouragement {
+        font-size: 14px;
+      }
+
+      .stats-summary .stats-text {
+        font-size: 13px;
+      }
+    }
+  }
+
+  // Small mobile styles (360px and below)
+  @media (max-width: 360px) {
+    .leaderboard-header {
+      .logo-link .logo {
+        height: 35px;
+        max-width: 90px;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .navigation-links .nav-btn {
+        padding: 6px 14px;
+        font-size: 12px;
+      }
+    }
+  }
+}
