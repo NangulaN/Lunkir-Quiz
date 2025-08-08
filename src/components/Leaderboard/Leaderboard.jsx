@@ -1,4 +1,3 @@
-// src/components/Leaderboard/Leaderboard.jsx
 import { useState, useEffect } from 'react';
 import { supabase } from '../../supabase/config';
 import './Leaderboard.scss';
@@ -38,7 +37,7 @@ const Leaderboard = ({ showTitle = true, maxEntries = 10 }) => {
     try {
       const { data, error } = await supabase
         .from('leaderboard')
-        .select('id, name, surname, score, percentage, completed_at')
+        .select('id, name, score, percentage, completed_at')
         .order('score', { ascending: false })
         .order('completed_at', { ascending: true })
         .limit(maxEntries);
@@ -66,8 +65,8 @@ const Leaderboard = ({ showTitle = true, maxEntries = 10 }) => {
     }
   };
 
-  const formatName = (name, surname) => {
-    return `${name} ${surname.charAt(0).toUpperCase()}.`;
+  const formatName = (name) => {
+    return name;
   };
 
   const formatDate = (dateString) => {
@@ -123,7 +122,7 @@ const Leaderboard = ({ showTitle = true, maxEntries = 10 }) => {
             </div>
             
             <div className="player-info">
-              <div className="name">{formatName(entry.name, entry.surname)}</div>
+              <div className="name">{formatName(entry.name)}</div>
               <div className="completion-date">{formatDate(entry.completed_at)}</div>
             </div>
             

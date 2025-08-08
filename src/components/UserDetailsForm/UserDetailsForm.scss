@@ -7,25 +7,28 @@
     h3 {
         font-size: 24px;
         color: $primary;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         letter-spacing: 1px;
     }
 
-    .score-display {
-        font-size: 18px;
+    .completion-message {
+        background: lighten($bg, 3%);
+        border: 2px solid $accent;
+        border-radius: 8px;
+        padding: 20px;
         margin-bottom: 25px;
+        text-align: center;
         
-        .score {
-            color: $primary;
-            font-size: 24px;
-            font-weight: 600;
-            margin: 0 5px;
-        }
-
-        .percentage {
-            color: $accent;
+        p {
+            margin: 8px 0;
             font-size: 16px;
-            margin-left: 10px;
+            color: $foreground;
+            
+            &:first-child {
+                font-size: 18px;
+                font-weight: 600;
+                color: $primary;
+            }
         }
     }
 
@@ -83,21 +86,23 @@
             margin-top: 30px;
 
             .submit-btn {
-                background: linear-gradient(0deg, $primary 0.03%, $accent);
-                border-radius: 9px;
+                background: linear-gradient(135deg, #28a745, #20c997);
+                border-radius: 12px;
                 font-size: 16px;
                 color: $bg;
-                padding: 12px 40px;
+                padding: 14px 30px;
                 outline: none;
                 border: none;
                 cursor: pointer;
                 transition: all 0.2s ease;
                 font-family: monospace;
                 font-weight: 600;
+                box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
 
                 &:hover:not(:disabled) {
-                    transform: translateY(-2px);
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                    transform: translateY(-3px);
+                    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+                    background: linear-gradient(135deg, #34ce57, #17a2b8);
                 }
 
                 &:disabled {
@@ -105,6 +110,7 @@
                     color: $disabled;
                     cursor: not-allowed;
                     transform: none;
+                    box-shadow: none;
                 }
             }
         }

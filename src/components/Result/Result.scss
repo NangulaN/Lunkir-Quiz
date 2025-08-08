@@ -1,48 +1,246 @@
 @import "../../styles/vars.scss";
 
 .result {
-        text-align: center;
+    text-align: center;
+    padding: 20px;
+
+    .result-header {
+        margin-bottom: 30px;
 
         h3 { 
             font-size: 24px;
             letter-spacing: 1.4px;
-            text-align: center;
+            margin-bottom: 15px;
+            color: $primary;
         }
 
-        p {
+        .success-message, .user-saved-info, .big-reveal-message {
             font-size: 16px;
-            font-weight: 500;
+            color: $foreground;
+            margin: 0;
 
-            span {
+            .user-name {
                 color: $primary;
-                font-size: 22px;
+                font-weight: 600;
             }
         }
 
-        
+        .view-info {
+            font-size: 14px;
+            color: $disabled;
+            margin: 0;
+        }
+    }
+
+    .big-score-reveal {
+        background: linear-gradient(135deg, lighten($bg, 8%), lighten($bg, 3%));
+        border: 4px solid $primary;
+        border-radius: 16px;
+        padding: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        animation: scoreReveal 0.8s ease-out;
+
+        .main-score {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .score-label {
+                font-size: 16px;
+                color: $disabled;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 10px;
+            }
+
+            .score-value {
+                font-size: 64px;
+                font-weight: bold;
+                color: $primary;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                margin-bottom: 8px;
+                line-height: 1;
+            }
+
+            .score-detail {
+                font-size: 18px;
+                color: $accent;
+                font-weight: 500;
+            }
+        }
+    }
+
+    @keyframes scoreReveal {
+        0% {
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    .final-results {
+        margin-bottom: 30px;
+
+        .result-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+
+            .stat-card {
+                background: lighten($bg, 3%);
+                border: 2px solid $disabled;
+                border-radius: 8px;
+                padding: 15px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: all 0.2s ease;
+
+                &.highlight {
+                    border-color: $primary;
+                    background: linear-gradient(135deg, lighten($bg, 5%), lighten($bg, 2%));
+                }
+
+                .stat-label {
+                    font-size: 12px;
+                    color: $disabled;
+                    text-transform: uppercase;
+                    letter-spacing: 0.5px;
+                    margin-bottom: 8px;
+                }
+
+                .stat-value {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: $primary;
+                }
+            }
+        }
+
+        .performance-message {
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+
+            p {
+                margin: 0;
+                font-size: 16px;
+                font-weight: 600;
+
+                &.excellent {
+                    background: linear-gradient(135deg, #28a745, #20c997);
+                    color: white;
+                    padding: 15px;
+                    border-radius: 8px;
+                }
+
+                &.good {
+                    background: linear-gradient(135deg, #17a2b8, #6f42c1);
+                    color: white;
+                    padding: 15px;
+                    border-radius: 8px;
+                }
+
+                &.okay {
+                    background: linear-gradient(135deg, #ffc107, #fd7e14);
+                    color: white;
+                    padding: 15px;
+                    border-radius: 8px;
+                }
+
+                &.needs-work {
+                    background: linear-gradient(135deg, #dc3545, #e83e8c);
+                    color: white;
+                    padding: 15px;
+                    border-radius: 8px;
+                }
+            }
+        }
+    }
+
+    .result-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+
+        button {
+            background: linear-gradient(0deg, $primary 0.03%, $accent);
+            border-radius: 9px;
+            font-size: 16px;
+            color: $bg;
+            padding: 12px 30px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: monospace;
+            font-weight: 600;
+            min-width: 200px;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            &.personal-btn {
+                background: linear-gradient(0deg, $accent, $primary);
+            }
+
+            &.view-leaderboard-btn {
+                background: linear-gradient(0deg, $bg-accent, $accent);
+            }
+
+            &.back-btn {
+                background: linear-gradient(0deg, $disabled, lighten($disabled, 10%));
+                color: $foreground;
+
+                &:hover {
+                    background: linear-gradient(0deg, lighten($disabled, 5%), lighten($disabled, 15%));
+                }
+            }
+        }
+    }
+
     // Tablet styles (768px and below)
     @media (max-width: 768px) {
         padding: 15px;
 
-        h3 {
+        .result-header h3 {
             font-size: 22px;
-            letter-spacing: 1.2px;
-            margin-bottom: 20px;
         }
 
-        p {
-            font-size: 15px;
-            margin: 12px 0;
+        .big-score-reveal {
+            padding: 25px;
+            margin-bottom: 25px;
 
-            span {
-                font-size: 20px;
+            .main-score .score-value {
+                font-size: 52px;
             }
         }
 
-        button {
-            font-size: 16px;
-            padding: 10px 32px;
-            margin-top: 20px;
+        .final-results .result-stats {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+
+            .stat-card {
+                padding: 12px;
+
+                .stat-value {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .result-actions button {
+            min-width: 180px;
+            font-size: 15px;
         }
     }
 
@@ -50,54 +248,72 @@
     @media (max-width: 480px) {
         padding: 10px;
 
-        h3 {
-            font-size: 20px;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
+        .result-header {
+            margin-bottom: 20px;
 
-        p {
-            font-size: 14px;
-            margin: 10px 0;
-            
-            span {
-                font-size: 18px;
-                display: block;
-                margin: 5px 0 0 0;
+            h3 {
+                font-size: 20px;
+            }
+
+            .success-message, .user-saved-info, .big-reveal-message {
+                font-size: 15px;
             }
         }
 
-        button {
-            font-size: 14px;
-            padding: 10px 30px;
-            margin-top: 15px;
-            width: 80%;
-            max-width: 200px;
-        }
-    }
+        .big-score-reveal {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-width: 3px;
 
-    // Small mobile styles (360px and below)
-    @media (max-width: 360px) {
-        padding: 8px;
+            .main-score {
+                .score-label {
+                    font-size: 14px;
+                }
 
-        h3 {
-            font-size: 18px;
-            margin-bottom: 12px;
-        }
+                .score-value {
+                    font-size: 42px;
+                }
 
-        p {
-            font-size: 13px;
-            margin: 8px 0;
-
-            span {
-                font-size: 16px;
+                .score-detail {
+                    font-size: 16px;
+                }
             }
         }
 
-        button {
-            font-size: 13px;
-            padding: 8px 25px;
-            width: 90%;
+        .final-results {
+            margin-bottom: 20px;
+
+            .result-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+
+                .stat-card {
+                    padding: 10px;
+
+                    .stat-label {
+                        font-size: 11px;
+                    }
+
+                    .stat-value {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            .performance-message p {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+
+        .result-actions {
+            gap: 10px;
+
+            button {
+                width: 100%;
+                max-width: 250px;
+                font-size: 14px;
+            }
         }
     }
 }

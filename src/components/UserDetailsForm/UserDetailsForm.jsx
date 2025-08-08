@@ -1,4 +1,3 @@
-// src/components/UserDetailsForm/UserDetailsForm.jsx
 import { useState } from 'react';
 import { supabase } from '../../supabase/config';
 import './UserDetailsForm.scss';
@@ -6,9 +5,7 @@ import './UserDetailsForm.scss';
 const UserDetailsForm = ({ score, totalQuestions, onSubmitSuccess }) => {
   const [formData, setFormData] = useState({
     name: '',
-    surname: '',
-    email: '',
-    phone: ''
+    email: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
@@ -16,17 +13,16 @@ const UserDetailsForm = ({ score, totalQuestions, onSubmitSuccess }) => {
   const validateForm = () => {
     const newErrors = {};
     
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.surname.trim()) newErrors.surname = 'Surname is required';
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Name must be at least 2 characters';
+    }
+    
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email';
-    }
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-    } else if (!/^\d{10,}$/.test(formData.phone.replace(/\D/g, ''))) {
-      newErrors.phone = 'Please enter a valid phone number';
     }
 
     setErrors(newErrors);
@@ -59,9 +55,7 @@ const UserDetailsForm = ({ score, totalQuestions, onSubmitSuccess }) => {
     try {
       const submissionData = {
         name: formData.name.trim(),
-        surname: formData.surname.trim(),
-        email: formData.email.trim(),
-        phone: formData.phone.trim(),
+        email: formData.email.trim().toLowerCase(),
         score: score,
         total_questions: totalQuestions,
         percentage: parseFloat(((score / (totalQuestions * 5)) * 100).toFixed(2)),
@@ -78,7 +72,7 @@ const UserDetailsForm = ({ score, totalQuestions, onSubmitSuccess }) => {
       }
       
       console.log('Score saved successfully:', data);
-      onSubmitSuccess();
+      onSubmitSuccess(submissionData);
       
     } catch (error) {
       console.error('Error saving to leaderboard:', error);
@@ -92,18 +86,19 @@ const UserDetailsForm = ({ score, totalQuestions, onSubmitSuccess }) => {
 
   return (
     <div className="user-details-form">
-      <h3>Save Your Score to Leaderboard! 🏆</h3>
-      <p className="score-display">
-        Your Score: <span className="score">{score}/{totalQuestions * 5}</span>
-        <span className="percentage">({percentage}%)</span>
-      </p>
+      <h3>Quiz Complete! 🎉</h3>
+      
+      <div className="completion-message">
+        <p>🎯 You've finished all {totalQuestions} questions!</p>
+        <p>Enter your details below to see your results and get on the leaderboard:</p>
+      </div>
       
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input
             type="text"
             name="name"
-            placeholder="First Name *"
+            placeholder="Your Name *"
             value={formData.name}
             onChange={handleInputChange}
             className={errors.name ? 'error' : ''}
@@ -114,22 +109,9 @@ const UserDetailsForm = ({ score, totalQuestions, onSubmitSuccess }) => {
 
         <div className="form-group">
           <input
-            type="text"
-            name="surname"
-            placeholder="Last Name *"
-            value={formData.surname}
-            onChange={handleInputChange}
-            className={errors.surname ? 'error' : ''}
-            disabled={isSubmitting}
-          />
-          {errors.surname && <span className="error-message">{errors.surname}</span>}
-        </div>
-
-        <div className="form-group">
-          <input
             type="email"
             name="email"
-            placeholder="Email Address *"
+            placeholder="Your Email *"
             value={formData.email}
             onChange={handleInputChange}
             className={errors.email ? 'error' : ''}
@@ -138,26 +120,13 @@ const UserDetailsForm = ({ score, totalQuestions, onSubmitSuccess }) => {
           {errors.email && <span className="error-message">{errors.email}</span>}
         </div>
 
-        <div className="form-group">
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number *"
-            value={formData.phone}
-            onChange={handleInputChange}
-            className={errors.phone ? 'error' : ''}
-            disabled={isSubmitting}
-          />
-          {errors.phone && <span className="error-message">{errors.phone}</span>}
-        </div>
-
         <div className="form-actions">
           <button 
             type="submit" 
             disabled={isSubmitting}
             className="submit-btn"
           >
-            {isSubmitting ? 'Saving...' : 'Save to Leaderboard'}
+            {isSubmitting ? 'Revealing Results...' : 'Reveal My Results! 🎁'}
           </button>
         </div>
       </form>
