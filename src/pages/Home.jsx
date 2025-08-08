@@ -33,7 +33,7 @@ const Home = () => {
               <span className="stat-label">Seconds</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">5</span>
+              <span className="stat-number">10</span>
               <span className="stat-label">Points Each</span>
             </div>
           </div>

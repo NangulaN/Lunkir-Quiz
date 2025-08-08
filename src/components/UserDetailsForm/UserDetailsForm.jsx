@@ -58,7 +58,7 @@ const UserDetailsForm = ({ score, totalQuestions, onSubmitSuccess }) => {
         email: formData.email.trim().toLowerCase(),
         score: score,
         total_questions: totalQuestions,
-        percentage: parseFloat(((score / (totalQuestions * 5)) * 100).toFixed(2)),
+        percentage: parseFloat(((score / (totalQuestions * 10)) * 100).toFixed(2)),
         completed_at: new Date().toISOString()
       };
 

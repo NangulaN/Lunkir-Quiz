@@ -92,3 +92,78 @@
 // Quiz 4
 // 3)C
 // 5)B
+
+
+
+
+// What is the primary objective of investing?
+// To maximize short-term spending
+// To preserve capital with minimal returns
+// To grow money over time
+// To diversify income sources
+// To grow money over time
+
+// What does the phrase “buy low, sell high” mean in investing?
+// Purchase stocks at their peak and sell at their lowest
+// Buy stocks when prices are low and sell when prices rise
+// Invest in undervalued assets and hold indefinitely
+// Trade stocks frequently to lock in small gains
+// Buy stocks when prices are low and sell when prices rise
+
+// What is a “portfolio” in the context of investing?
+// A financial plan for retirement
+// A collection of all your different investments
+// A single type of investment asset
+// A savings account with high interest
+// A collection of all your different investments
+
+// What does “risk” refer to in investing?
+// The potential for higher-than-average returns
+// The possibility of losing some or all of your money
+// The certainty of earning a fixed profit
+// The cost of managing investments
+// The possibility of losing some or all of your money
+
+// When an investor buys shares on the stock exchange, what are they purchasing?
+// A piece of a company
+// A fixed-income government security
+// A stake in a mutual fund
+// A share of real estate property
+// A piece of a company
+
+// "What distinguishes Lunkir from traditional investment firms in Namibia?",
+// "It focuses exclusively on high-net-worth clients",
+// "It lets people invest in stocks and save easily using their phones",
+// "It specializes in fixed-income securities only",
+// "It offers traditional banking services",
+// "It lets people invest in stocks and save easily using their phones",
+
+
+
+// "Why might a beginner investor choose to use Lunkir?",
+// "Because it requires advanced financial knowledge",
+// "Because it makes investing simple and accessible for people new to investing",
+// "Because it guarantees high returns",
+// "Because it limits investments to a single stock",
+// "Because it makes investing simple and accessible for people new to investing",
+
+// "How does Lunkir help Namibians build financial habits?",
+// "By providing simple and affordable tools to invest regularly",
+// "By encouraging high-risk speculative trading",
+// "By locking funds in long-term accounts",
+// "By offering only high-cost investment products",
+// "By providing simple and affordable tools to invest regularly",
+
+// "What is a smart investing habit encouraged by Lunkir?",
+// "Investing small amounts regularly over time",
+// "Timing the market to maximize short-term gains",
+// "Investing only in a single stock for diversification",
+// "Waiting for market dips to invest large sums",
+// "Investing small amounts regularly over time",
+
+// "What was the first stock exchange in Namibia called?",
+// "Namibian Securities Exchange",
+// "Lüderitz Stock Exchange",
+// "Windhoek Financial Market",
+// "Namibian Capital Market",
+// "Lüderitz Stock Exchange",

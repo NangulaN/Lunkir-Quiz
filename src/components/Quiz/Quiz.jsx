@@ -35,7 +35,7 @@ const Quiz = ({ questions }) => {
       finalAnswer
         ? {
           ...prev,
-          score: prev.score + 5,
+          score: prev.score + 10,
           correctAnswers: prev.correctAnswers + 1,
         }
         : {
