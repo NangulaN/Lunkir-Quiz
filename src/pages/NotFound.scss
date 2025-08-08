@@ -1,0 +1,330 @@
+@import "../styles/vars.scss";
+
+.not-found-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  .not-found-container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+
+    .not-found-header {
+      margin-bottom: 40px;
+
+      .logo-link {
+        display: inline-block;
+        transition: transform 0.2s ease;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+
+        .logo {
+          height: 60px;
+          width: auto;
+          max-width: 150px;
+          object-fit: contain;
+        }
+      }
+    }
+
+    .error-content {
+      .error-code {
+        font-size: 120px;
+        font-weight: bold;
+        color: $primary;
+        line-height: 1;
+        margin-bottom: 20px;
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background: linear-gradient(45deg, $primary, $accent);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .error-title {
+        font-size: 36px;
+        color: $bg-accent;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+      }
+
+      .error-message {
+        font-size: 18px;
+        color: $foreground;
+        margin-bottom: 10px;
+        line-height: 1.5;
+      }
+
+      .error-suggestion {
+        font-size: 16px;
+        color: $foreground;
+        margin-bottom: 40px;
+      }
+
+      .navigation-options {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 50px;
+
+        .nav-btn {
+          padding: 12px 24px;
+          border-radius: 8px;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 600;
+          font-family: monospace;
+          transition: all 0.2s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+          }
+
+          &.primary-btn {
+            background: linear-gradient(135deg, $primary, $accent);
+            color: $bg;
+          }
+
+          &.quiz-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+          }
+
+          &.leaderboard-btn {
+            background: linear-gradient(135deg, #17a2b8, #6f42c1);
+            color: white;
+          }
+        }
+      }
+
+      .helpful-links {
+        background: lighten($bg, 2%);
+        border: 2px solid $disabled;
+        border-radius: 12px;
+        padding: 30px;
+        margin-bottom: 40px;
+
+        .links-title {
+          font-size: 18px;
+          color: $primary;
+          margin-bottom: 25px;
+          font-weight: 600;
+        }
+
+        .link-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+
+          .helpful-link {
+            background: lighten($bg, 5%);
+            border: 1px solid $disabled;
+            border-radius: 8px;
+            padding: 20px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            &:hover {
+              border-color: $primary;
+              transform: translateY(-3px);
+              background: lighten($bg, 8%);
+            }
+
+            .link-icon {
+              font-size: 32px;
+              margin-bottom: 10px;
+            }
+
+            .link-text {
+              font-size: 16px;
+              font-weight: 600;
+              color: $primary;
+              margin-bottom: 5px;
+            }
+
+            .link-desc {
+              font-size: 13px;
+              color: $disabled;
+              line-height: 1.4;
+            }
+          }
+        }
+      }
+    }
+
+    .not-found-footer {
+      border-top: 1px solid $accent;
+      padding-top: 20px;
+
+      p {
+        font-size: 14px;
+        color: $accent;
+        margin: 0;
+        font-style: italic;
+      }
+    }
+  }
+
+  // Tablet styles (768px and below)
+  @media (max-width: 768px) {
+    padding: 15px;
+
+    .not-found-container {
+      .not-found-header .logo-link .logo {
+        height: 50px;
+        max-width: 120px;
+      }
+
+      .error-content {
+        .error-code {
+          font-size: 80px;
+        }
+
+        .error-title {
+          font-size: 28px;
+        }
+
+        .error-message {
+          font-size: 16px;
+        }
+
+        .navigation-options {
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+
+          .nav-btn {
+            width: 100%;
+            max-width: 200px;
+          }
+        }
+
+        .helpful-links {
+          padding: 25px;
+
+          .link-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  // Mobile styles (480px and below)
+  @media (max-width: 480px) {
+    padding: 10px;
+
+    .not-found-container {
+      .not-found-header {
+        margin-bottom: 30px;
+
+        .logo-link .logo {
+          height: 40px;
+          max-width: 100px;
+        }
+      }
+
+      .error-content {
+        .error-code {
+          font-size: 60px;
+          margin-bottom: 15px;
+        }
+
+        .error-title {
+          font-size: 24px;
+          margin-bottom: 15px;
+        }
+
+        .error-message {
+          font-size: 15px;
+        }
+
+        .error-suggestion {
+          font-size: 14px;
+          margin-bottom: 30px;
+        }
+
+        .navigation-options {
+          margin-bottom: 40px;
+
+          .nav-btn {
+            padding: 10px 20px;
+            font-size: 13px;
+          }
+        }
+
+        .helpful-links {
+          padding: 20px;
+
+          .links-title {
+            font-size: 16px;
+            margin-bottom: 20px;
+          }
+
+          .link-grid .helpful-link {
+            padding: 15px;
+
+            .link-icon {
+              font-size: 28px;
+            }
+
+            .link-text {
+              font-size: 15px;
+            }
+
+            .link-desc {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      .not-found-footer {
+        padding-top: 15px;
+
+        p {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  // Small mobile styles (360px and below)
+  @media (max-width: 360px) {
+    .not-found-container {
+      .not-found-header .logo-link .logo {
+        height: 35px;
+        max-width: 90px;
+      }
+
+      .error-content {
+        .error-code {
+          font-size: 50px;
+        }
+
+        .error-title {
+          font-size: 20px;
+        }
+
+        .helpful-links {
+          padding: 15px;
+
+          .link-grid .helpful-link {
+            padding: 12px;
+          }
+        }
+      }
+    }
+  }
+}

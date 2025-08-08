@@ -247,3 +247,88 @@
     }
 
 }
+
+// Add these styles to your Quiz.scss
+
+.quiz-status {
+  text-align: center;
+  padding: 40px 20px;
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: $primary;
+  }
+
+  p {
+    font-size: 16px;
+    color: $foreground;
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+
+  &.loading {
+    h2 {
+      color: $accent;
+    }
+  }
+
+  &.closed {
+    .closed-actions {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 30px;
+
+      .home-btn, .leaderboard-btn {
+        background: linear-gradient(135deg, $primary, $accent);
+        color: $bg;
+        text-decoration: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        font-family: monospace;
+        transition: all 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        &.home-btn {
+          background: linear-gradient(135deg, $disabled, lighten($disabled, 10%));
+          color: $foreground;
+
+          &:hover {
+            background: linear-gradient(135deg, lighten($disabled, 5%), lighten($disabled, 15%));
+          }
+        }
+      }
+    }
+  }
+
+  // Mobile responsive
+  @media (max-width: 480px) {
+    padding: 30px 15px;
+
+    h2 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    &.closed .closed-actions {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+
+      .home-btn, .leaderboard-btn {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+  }
+}

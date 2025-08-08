@@ -1,0 +1,414 @@
+@import "../styles/vars.scss";
+
+.admin-panel {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+
+  .loading {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 18px;
+    color: $disabled;
+  }
+
+  .admin-login {
+    max-width: 400px;
+    margin: 100px auto;
+    text-align: center;
+    background: lighten($bg, 3%);
+    border: 3px solid $primary;
+    border-radius: 12px;
+    padding: 40px 30px;
+
+    h2 {
+      font-size: 24px;
+      color: $primary;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .password-input {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 16px;
+        font-family: monospace;
+        border: 2px solid $disabled;
+        border-radius: 8px;
+        background: $bg;
+        color: $foreground;
+        box-sizing: border-box;
+        transition: all 0.2s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $primary;
+          transform: translateY(-2px);
+        }
+
+        &::placeholder {
+          color: $disabled;
+        }
+      }
+
+      .login-btn {
+        background: linear-gradient(135deg, $primary, $accent);
+        border: none;
+        border-radius: 8px;
+        color: $bg;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px 24px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: monospace;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+  }
+
+  .admin-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid $disabled;
+
+    h1 {
+      font-size: 32px;
+      color: $bg;
+      margin-bottom: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    p {
+      font-size: 16px;
+      color: $accent;
+      margin: 0;
+    }
+  }
+
+  .admin-content {
+    display: grid;
+    gap: 30px;
+
+    .quiz-control-section,
+    .export-section,
+    .links-section {
+      background: lighten($bg, 2%);
+      border: 2px solid $disabled;
+      border-radius: 12px;
+      padding: 25px;
+
+      h3 {
+        font-size: 20px;
+        color: $primary;
+        margin-bottom: 20px;
+        border-bottom: 1px solid $disabled;
+        padding-bottom: 10px;
+      }
+
+      p {
+        color: $foreground;
+        margin-bottom: 20px;
+        line-height: 1.5;
+      }
+    }
+
+    .quiz-control-section {
+      .status-display {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+        padding: 15px;
+        background: lighten($bg, 5%);
+        border-radius: 8px;
+
+        .status-label {
+          font-size: 16px;
+          color: $foreground;
+          font-weight: 600;
+        }
+
+        .status-badge {
+          padding: 6px 12px;
+          border-radius: 20px;
+          font-size: 14px;
+          font-weight: 600;
+
+          &.active {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+          }
+
+          &.closed {
+            background: linear-gradient(135deg, #dc3545, #e83e8c);
+            color: white;
+          }
+        }
+      }
+
+      .control-buttons {
+        display: flex;
+        gap: 15px;
+
+        .activate-btn,
+        .close-btn {
+          flex: 1;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 600;
+          font-family: monospace;
+          cursor: pointer;
+          transition: all 0.2s ease;
+
+          &:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          }
+
+          &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+          }
+        }
+
+        .activate-btn {
+          background: linear-gradient(135deg, #28a745, #20c997);
+          color: white;
+
+          &:disabled {
+            background: $bg-accent;
+            color: $disabled;
+          }
+        }
+
+        .close-btn {
+          background: linear-gradient(135deg, #dc3545, #e83e8c);
+          color: white;
+
+          &:disabled {
+            background: $bg-accent;
+            color: $disabled;
+          }
+        }
+      }
+    }
+
+    .export-section {
+      text-align: center;
+
+      .export-btn {
+        background: linear-gradient(135deg, #17a2b8, #6f42c1);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px 24px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-family: monospace;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+      }
+    }
+
+    .links-section {
+      .quick-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+
+        .link-btn {
+          background: linear-gradient(135deg, $disabled, lighten($disabled, 10%));
+          color: $foreground;
+          text-decoration: none;
+          padding: 10px 20px;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: 600;
+          font-family: monospace;
+          transition: all 0.2s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, lighten($disabled, 5%), lighten($disabled, 15%));
+          }
+        }
+      }
+    }
+  }
+
+  // Tablet styles (768px and below)
+  @media (max-width: 768px) {
+    padding: 15px;
+
+    .admin-login {
+      margin: 60px auto;
+      padding: 30px 20px;
+
+      h2 {
+        font-size: 22px;
+      }
+    }
+
+    .admin-header {
+      margin-bottom: 30px;
+
+      h1 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+
+    .admin-content {
+      gap: 25px;
+
+      .quiz-control-section,
+      .export-section,
+      .links-section {
+        padding: 20px;
+
+        h3 {
+          font-size: 18px;
+        }
+      }
+
+      .quiz-control-section .status-display {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+
+      .links-section .quick-links {
+        flex-direction: column;
+        align-items: center;
+
+        .link-btn {
+          width: 100%;
+          max-width: 200px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  // Mobile styles (480px and below)
+  @media (max-width: 480px) {
+    padding: 10px;
+
+    .admin-login {
+      margin: 40px auto;
+      padding: 25px 15px;
+
+      h2 {
+        font-size: 20px;
+      }
+
+      form {
+        gap: 15px;
+
+        .password-input {
+          padding: 10px 14px;
+          font-size: 15px;
+        }
+
+        .login-btn {
+          padding: 10px 20px;
+          font-size: 15px;
+        }
+      }
+    }
+
+    .admin-header {
+      margin-bottom: 25px;
+
+      h1 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 14px;
+      }
+    }
+
+    .admin-content {
+      gap: 20px;
+
+      .quiz-control-section,
+      .export-section,
+      .links-section {
+        padding: 15px;
+
+        h3 {
+          font-size: 16px;
+        }
+
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .quiz-control-section .control-buttons {
+        flex-direction: column;
+        gap: 10px;
+
+        .activate-btn,
+        .close-btn {
+          padding: 10px 16px;
+          font-size: 13px;
+        }
+      }
+
+      .export-section .export-btn {
+        width: 100%;
+        padding: 10px 20px;
+        font-size: 15px;
+      }
+    }
+  }
+
+  // Small mobile styles (360px and below)
+  @media (max-width: 360px) {
+    .admin-login {
+      margin: 30px auto;
+      padding: 20px 12px;
+
+      h2 {
+        font-size: 18px;
+      }
+    }
+
+    .admin-header h1 {
+      font-size: 22px;
+    }
+
+    .admin-content {
+      .quiz-control-section,
+      .export-section,
+      .links-section {
+        padding: 12px;
+      }
+    }
+  }
+}

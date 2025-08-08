@@ -8,6 +8,8 @@ import QuizPage from './pages/QuizPage'
 import About from './pages/About'
 import Home from './pages/Home'
 import LeaderboardPage from './pages/LeaderboardPage'
+import AdminPanel from './pages/AdminPanel'
+import NotFound from './pages/NotFound'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
   {
     path: '/leaderboard',
     element: <LeaderboardPage />
+  },
+  {
+    path: '/admin',
+    element: <AdminPanel />
+  },
+  {
+    path: '*',
+    element: <NotFound />
   },
 ])
 
